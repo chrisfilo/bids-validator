@@ -14,12 +14,12 @@ var NIFTI  = require('./nii');
  * returns the errors as an argument
  * to the callback.
  */
-module.exports = function (fileList, callback) {
+module.exports = function (fileList, callback, progress) {
     if (typeof fileList === 'object') {
-        start(fileList, callback);
+        start(fileList, callback, progress);
     } else if (typeof fileList === 'string') {
         utils.readDir(fileList, function (files) {
-            start(files, callback);
+            start(files, callback, progress);
         });
     }
 };
@@ -31,7 +31,7 @@ module.exports = function (fileList, callback) {
  * the validation process for a BIDS
  * package.
  */
-function start (fileList, callback) {
+function start (fileList, callback, progress) {
     var errors = [];
     async.forEachOf(fileList, function (file, key, cb) {
 
@@ -60,6 +60,7 @@ function start (fileList, callback) {
             // });
 
             cb();
+            progress();
             return;
         }
 
@@ -71,6 +72,7 @@ function start (fileList, callback) {
                         errors.push({file: file, errors: errs})
                     }
                     cb();
+                    progress();
                 });
          });
             return;
@@ -84,10 +86,12 @@ function start (fileList, callback) {
                         errors.push({file: file, errors: errs})
                     }
                     cb();
+                    progress();
                 });
             });
         } else {
             cb();
+            progress();
         }
     
     }, function () {

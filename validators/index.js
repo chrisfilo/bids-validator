@@ -21,11 +21,11 @@ var validate = {
 // implementations ---------------------------------------------------
 
 
-function BIDSPath (path, callback) {
+function BIDSPath (path, callback, progress) {
     utils.readDir(path, function (files) {
         BIDS(files, function (errors) {
             callback(errors);
-        });
+        }, progress);
     });
 }
 
