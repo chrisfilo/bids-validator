@@ -45,8 +45,7 @@ function start (fileList, callback) {
                     evidence: file.name,
                     line: null,
                     character: null,
-                    reason: 'NifTi files should be compressed using gzip.',
-                    severity: 'error'
+                    reason: 'NifTi files should be compressed using gzip.'
                 }
                 
                 errors.push({file: file, errors: [newError]});
