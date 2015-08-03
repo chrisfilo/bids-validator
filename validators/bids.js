@@ -54,6 +54,7 @@ function quickTest (fileList, callback) {
         var path = typeof window != 'undefined' ? file.webkitRelativePath : file.relativePath;
         if (path) {
             path = path.split('/');
+            if (path.length > 5) {couldBeBIDS = false; break;}
             path = path.reverse();
 
             if (
