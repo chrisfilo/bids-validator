@@ -147,10 +147,10 @@ var BIDS = {
                 utils.readFile(file, function (contents) {
                     TSV(contents, function (errs, warns) {
                         if (errs && errs.length > 0) {
-                            self.errors.push({file: file, errors: errs})
+                            self.errors.push({path: path, errors: errs})
                         }
                         if (warns && warns.length > 0) {
-                            self.warnings.push({file: file, errors: warns});
+                            self.warnings.push({path: path, errors: warns});
                         }
                         cb();
                     });
@@ -164,7 +164,7 @@ var BIDS = {
                 utils.readFile(file, function (contents) {
                     JSON(contents, isSidecar, function (errs) {
                         if (errs) {
-                            self.errors.push({file: file, errors: errs})
+                            self.errors.push({path: path, errors: errs})
                         }
                         cb();
                     });
