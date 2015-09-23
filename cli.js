@@ -26,9 +26,15 @@ function logIssues (issues, color) {
     		var error = issues[i].errors[j];
     		if (error) {
 	    		console.log('\t' + error.reason);
-	    		console.log('\t@ line: ' + error.line + ' character: ' + error.character);
+					var where = '\t@ line: ' + error.line
+					if (error.character) {
+						where += ' character: ' + error.character
+					}
+	    		console.log(where);
 	    		console.log('\t' + error.evidence);
-	    		console.log('\t' + error.severity);
+					if (error.severity) {
+	    			console.log('\t' + error.severity);
+					}
 	    		console.log();
     	}
     }
