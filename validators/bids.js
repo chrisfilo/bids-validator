@@ -52,9 +52,9 @@ var BIDS = {
 
                 if (
                     path[0].indexOf('.nii.gz') > -1 &&
-                    (path[1].indexOf('anatomy') > -1 ||
-                     path[1].indexOf('functional') > -1 ||
-                     path[1].indexOf('diffusion') > -1) &&
+                    (path[1].indexOf('anat') > -1 ||
+                     path[1].indexOf('func') > -1 ||
+                     path[1].indexOf('dwi') > -1) &&
                     (
                         (path[2] && path[2].indexOf('ses') > -1) ||
                         (path[2] && path[2].indexOf('sub') > -1)
@@ -135,7 +135,7 @@ var BIDS = {
                         reason: 'NifTi files should be compressed using gzip.',
                         severity: 'error'
                     }
-                    
+
                     self.errors.push({file: file, errors: [newError]});
                 }
                 cb();
@@ -172,7 +172,7 @@ var BIDS = {
             } else {
                 cb();
             }
-        
+
         }, function () {
             callback(self.errors, self.warnings);
         });
@@ -208,7 +208,7 @@ module.exports = BIDS;
  * Takes either a filelist array or
  * a path to a BIDS directory and
  * starts the validation process and
- * returns the errors and warnings as 
+ * returns the errors and warnings as
  * arguments to the callback.
  */
 // module.exports = function (dir, callback) {
