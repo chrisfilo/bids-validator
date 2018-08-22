@@ -11,6 +11,7 @@
     "bids-validator": "latest",
     "bowser": "^1.0.0",
     "bytes": "^2.3.0",
+    "gulp-terser": "^1.0.1",
     "pluralize": "^1.1.2",
     "react": "^0.13.0",
     "react-bootstrap": "^0.23.0",
@@ -31,7 +32,6 @@
     "gulp-notify": "^3.2.0",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "2.6.4",
-    "gulp-uglify": "^3.0.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.11.0"
