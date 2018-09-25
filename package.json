@@ -34,6 +34,7 @@
     "gulp-sourcemaps": "2.6.4",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^2.0.0",
-    "watchify": "^3.11.0"
+    "watchify": "^3.11.0",
+    "ws": "3.3.2"
   }
 }
