@@ -20,6 +20,8 @@ jobs:
       - run:
           name: Mocha tests
           command: npm run coverage
+          environment:
+            JEST_JUNIT_OUTPUT: 'reports/junit/js-test-results.xml'
       - run:
           name: Upload to codecov
           command: npm run codecov
